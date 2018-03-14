@@ -1,0 +1,24 @@
+doctype html
+html
+ head
+  title Remote LED
+  body
+   h1 Remote LED websocket.io
+   h2#pesan
+   
+   input#nilai(type='checkbox', onclick='klikButton(this.id)')
+
+   script(src='/socket.io/socket.io.js')
+   script.
+    var socket = io.connect('http://localhost:3000/');
+    socket.on('notiflampu', (data)=>{
+     var pesan = document.getElementById('pesan');
+     pesan.innerHTML = data.msg;
+    });
+    function klikButton(id){
+     var nilai = document.getElementById(id);
+     if(nilai.checked)
+      socket.emit('statuslampu', { status: 1 });
+     else
+      socket.emit('statuslampu', { status: 0 });
+    }

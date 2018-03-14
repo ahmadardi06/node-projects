@@ -1,0 +1,675 @@
+extends layout
+
+block content
+  .container
+    // chart dashboard start
+    #chart-dashboard
+      .row
+        .col.s12.m8.l8
+          .card
+            .card-move-up.waves-effect.waves-block.waves-light
+              .move-up.cyan.darken-1
+                div
+                  span.chart-title.white-text Revenue
+                  |                                                 
+                  .chart-revenue.cyan.darken-2.white-text
+                    p.chart-revenue-total $4,500.85
+                    |                                                     
+                    p.chart-revenue-per
+                      i.mdi-navigation-arrow-drop-up
+                      |  21.80 %
+                  |                                                 
+                  .switch.chart-revenue-switch.right
+                    label.cyan-text.text-lighten-5
+                      | Month
+                      input(type="checkbox")
+                      |                                                       
+                      span.lever
+                      |  Year
+                |                                             
+                .trending-line-chart-wrapper
+                  canvas#trending-line-chart(height="70")
+            |                                     
+            .card-content
+              a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+                i.mdi-content-add.activator
+              |                                         
+              .col.s12.m3.l3
+                #doughnut-chart-wrapper
+                  canvas#doughnut-chart(height="200")
+                  |                                                 
+                  .doughnut-chart-status
+                    | 4500
+                    p.ultra-small.center-align Sold
+              |                                         
+              .col.s12.m2.l2
+                ul.doughnut-chart-legend
+                  li.mobile.ultra-small
+                    span.legend-color
+                    | Mobile
+                  |                                                 
+                  li.kitchen.ultra-small
+                    span.legend-color
+                    |  Kitchen
+                  |                                                 
+                  li.home.ultra-small
+                    span.legend-color
+                    |  Home
+              |                                         
+              .col.s12.m5.l6
+                .trending-bar-chart-wrapper
+                  canvas#trending-bar-chart(height="90")
+            |                                     
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Revenue by Month 
+                i.mdi-navigation-close.right
+              |                                         
+              table.responsive-table
+                thead
+                  tr
+                    th(data-field="id") ID
+                    |                                                     
+                    th(data-field="month") Month
+                    |                                                     
+                    th(data-field="item-sold") Item Sold
+                    |                                                     
+                    th(data-field="item-price") Item Price
+                    |                                                     
+                    th(data-field="total-profit") Total Profit
+                |                                             
+                tbody
+                  tr
+                    td 1
+                    |                                                     
+                    td January
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 2
+                    |                                                     
+                    td February
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 3
+                    |                                                     
+                    td March
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 4
+                    |                                                     
+                    td April
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 5
+                    |                                                     
+                    td May
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 6
+                    |                                                     
+                    td June
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 7
+                    |                                                     
+                    td July
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 8
+                    |                                                     
+                    td August
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 9
+                    |                                                     
+                    td Septmber
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 10
+                    |                                                     
+                    td Octomber
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 11
+                    |                                                     
+                    td November
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+                  |                                                 
+                  tr
+                    td 12
+                    |                                                     
+                    td December
+                    |                                                     
+                    td 122
+                    |                                                     
+                    td 100
+                    |                                                     
+                    td $122,00.00
+        |                             
+        .col.s12.m4.l4
+          .card
+            .card-move-up.teal.waves-effect.waves-block.waves-light
+              .move-up
+                p.margin.white-text Browser Stats
+                |                                             
+                canvas#trending-radar-chart(height="114")
+            |                                     
+            .card-content.teal.darken-2
+              a.btn-floating.btn-move-up.waves-effect.waves-light.darken-2.right
+                i.mdi-content-add.activator
+              |                                         
+              .line-chart-wrapper
+                p.margin.white-text Revenue by country
+                |                                             
+                canvas#line-chart(height="114")
+            |                                     
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Revenue by country 
+                i.mdi-navigation-close.right
+              |                                         
+              table.responsive-table
+                thead
+                  tr
+                    th(data-field="country-name") Country Name
+                    |                                                     
+                    th(data-field="item-sold") Item Sold
+                    |                                                     
+                    th(data-field="total-profit") Total Profit
+                |                                             
+                tbody
+                  tr
+                    td USA
+                    |                                                     
+                    td 65
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td UK
+                    |                                                     
+                    td 76
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td Canada
+                    |                                                     
+                    td 65
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td Brazil
+                    |                                                     
+                    td 76
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td India
+                    |                                                     
+                    td 65
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td France
+                    |                                                     
+                    td 76
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td Austrelia
+                    |                                                     
+                    td 65
+                    |                                                     
+                    td $452.55
+                  |                                                 
+                  tr
+                    td Russia
+                    |                                                     
+                    td 76
+                    |                                                     
+                    td $452.55
+    // chart dashboard end
+    // ////////////////////////////////////////////////////////////////////////////
+    // card stats start
+    #card-stats
+      .row
+        .col.s12.m6.l3
+          .card
+            .card-content.green.white-text
+              p.card-stats-title
+                i.mdi-social-group-add
+                |  New Clients
+              |                                         
+              h4.card-stats-number 566
+              |                                         
+              p.card-stats-compare
+                i.mdi-hardware-keyboard-arrow-up
+                |  15% 
+                span.green-text.text-lighten-5 from yesterday
+            |                                     
+            .card-action.green.darken-2
+              #clients-bar
+        |                             
+        .col.s12.m6.l3
+          .card
+            .card-content.purple.white-text
+              p.card-stats-title
+                i.mdi-editor-attach-money
+                | Total Sales
+              |                                         
+              h4.card-stats-number $8990.63
+              |                                         
+              p.card-stats-compare
+                i.mdi-hardware-keyboard-arrow-up
+                |  70% 
+                span.purple-text.text-lighten-5 last month
+            |                                     
+            .card-action.purple.darken-2
+              #sales-compositebar
+        |                             
+        |                             
+        .col.s12.m6.l3
+          .card
+            .card-content.blue-grey.white-text
+              p.card-stats-title
+                i.mdi-action-trending-up
+                |  Today Profit
+              |                                         
+              h4.card-stats-number $806.52
+              |                                         
+              p.card-stats-compare
+                i.mdi-hardware-keyboard-arrow-up
+                |  80% 
+                span.blue-grey-text.text-lighten-5 from yesterday
+            |                                     
+            .card-action.blue-grey.darken-2
+              #profit-tristate
+        |                             
+        .col.s12.m6.l3
+          .card
+            .card-content.deep-purple.white-text
+              p.card-stats-title
+                i.mdi-editor-insert-drive-file
+                |  New Invoice
+              |                                         
+              h4.card-stats-number 1806
+              |                                         
+              p.card-stats-compare
+                i.mdi-hardware-keyboard-arrow-down
+                |  3% 
+                span.deep-purple-text.text-lighten-5 from last month
+            |                                     
+            .card-action.deep-purple.darken-2
+              #invoice-line
+    // card stats end
+    // ////////////////////////////////////////////////////////////////////////////
+    // card widgets start
+    #card-widgets
+      .row
+        .col.s12.m12.l4
+          ul#task-card.collection.with-header
+            li.collection-header.cyan
+              h4.task-card-title My Task
+              |                                         
+              p.task-card-date March 26, 2015
+            |                                     
+            li.collection-item.dismissable
+              input#task1(type="checkbox")
+              |                                         
+              label(for="task1")
+                | Create Mobile App UI. 
+                a.secondary-content(href="#")
+                  span.ultra-small Today
+              |                                         
+              span.task-cat.teal Mobile App
+            |                                     
+            li.collection-item.dismissable
+              input#task2(type="checkbox")
+              |                                         
+              label(for="task2")
+                | Check the new API standerds. 
+                a.secondary-content(href="#")
+                  span.ultra-small Monday
+              |                                         
+              span.task-cat.purple Web API
+            |                                     
+            li.collection-item.dismissable
+              input#task3(type="checkbox", checked="checked")
+              |                                         
+              label(for="task3")
+                | Check the new Mockup of ABC. 
+                a.secondary-content(href="#")
+                  span.ultra-small Wednesday
+              |                                         
+              span.task-cat.pink Mockup
+            |                                     
+            li.collection-item.dismissable
+              input#task4(type="checkbox", checked="checked", disabled="disabled")
+              |                                         
+              label(for="task4") I did it !
+              |                                         
+              span.task-cat.cyan Mobile App
+        |                             
+        .col.s12.m6.l4
+          #flight-card.card
+            .card-header.amber.darken-2
+              .card-title
+                h4.flight-card-title Flight
+                |                                             
+                p.flight-card-date June 18, Thu 04:50
+            |                                     
+            .card-content-bg.white-text
+              .card-content
+                .row.flight-state-wrapper
+                  .col.s5.m5.l5.center-align
+                    .flight-state
+                      h4.margin LDN
+                      |                                                         
+                      p.ultra-small London
+                  |                                                 
+                  .col.s2.m2.l2.center-align
+                    i.mdi-device-airplanemode-on.flight-icon
+                  |                                                 
+                  .col.s5.m5.l5.center-align
+                    .flight-state
+                      h4.margin SFO
+                      |                                                         
+                      p.ultra-small San Francisco
+                |                                             
+                .row
+                  .col.s6.m6.l6.center-align
+                    .flight-info
+                      p.small
+                        span.grey-text.text-lighten-4 Depart:
+                        |  04.50
+                      |                                                         
+                      p.small
+                        span.grey-text.text-lighten-4 Flight:
+                        |  IB 5786
+                      |                                                         
+                      p.small
+                        span.grey-text.text-lighten-4 Terminal:
+                        |  B
+                  |                                                 
+                  .col.s6.m6.l6.center-align.flight-state-two
+                    .flight-info
+                      p.small
+                        span.grey-text.text-lighten-4 Arrive:
+                        |  08.50
+                      |                                                         
+                      p.small
+                        span.grey-text.text-lighten-4 Flight:
+                        |  IB 5786
+                      |                                                         
+                      p.small
+                        span.grey-text.text-lighten-4 Terminal:
+                        |  C
+        |                             
+        .col.s12.m6.l4
+          #profile-card.card
+            .card-image.waves-effect.waves-block.waves-light
+              img.activator(src="images/user-bg.jpg", alt="user background")
+            |                                     
+            .card-content
+              img.circle.responsive-img.activator.card-profile-image(src="images/avatar.jpg", alt="")
+              |                                         
+              a.btn-floating.activator.btn-move-up.waves-effect.waves-light.darken-2.right
+                i.mdi-editor-mode-edit
+              |                                         
+              span.card-title.activator.grey-text.text-darken-4 Roger Waters
+              |                                         
+              p
+                i.mdi-action-perm-identity.cyan-text.text-darken-2
+                |  Project Manager
+              |                                         
+              p
+                i.mdi-action-perm-phone-msg.cyan-text.text-darken-2
+                |  +1 (612) 222 8989
+              |                                         
+              p
+                i.mdi-communication-email.cyan-text.text-darken-2
+                |  mail@domain.com
+            |                                     
+            .card-reveal
+              span.card-title.grey-text.text-darken-4
+                | Roger Waters 
+                i.mdi-navigation-close.right
+              |                                         
+              p Here is some more information about this card.
+              |                                         
+              p
+                i.mdi-action-perm-identity.cyan-text.text-darken-2
+                |  Project Manager
+              |                                         
+              p
+                i.mdi-action-perm-phone-msg.cyan-text.text-darken-2
+                |  +1 (612) 222 8989
+              |                                         
+              p
+                i.mdi-communication-email.cyan-text.text-darken-2
+                |  mail@domain.com
+              |                                         
+              p
+                i.mdi-social-cake.cyan-text.text-darken-2
+                |  18th June 1990
+              |                                         
+              p
+                i.mdi-device-airplanemode-on.cyan-text.text-darken-2
+                |  BAR - AUS
+    // card widgets end
+    // ////////////////////////////////////////////////////////////////////////////
+    // work collections start
+    #work-collections
+      .row
+        .col.s12.m12.l6
+          ul#projects-collection.collection
+            li.collection-item.avatar
+              i.mdi-file-folder.circle.light-blue.darken-2
+              |                                         
+              span.collection-header Projects
+              |                                         
+              p Your Favorites
+              |                                         
+              a.secondary-content(href="#")
+                i.mdi-action-grade
+            |                                     
+            li.collection-item
+              .row
+                .col.s6
+                  p.collections-title Web App
+                  |                                                 
+                  p.collections-content AEC Company
+                |                                             
+                .col.s3
+                  span.task-cat.cyan Development
+                |                                             
+                .col.s3
+                  #project-line-1
+            |                                     
+            li.collection-item
+              .row
+                .col.s6
+                  p.collections-title Mobile App for Social
+                  |                                                 
+                  p.collections-content iSocial App
+                |                                             
+                .col.s3
+                  span.task-cat.grey.darken-3 UI/UX
+                |                                             
+                .col.s3
+                  #project-line-2
+            |                                     
+            li.collection-item
+              .row
+                .col.s6
+                  p.collections-title Website
+                  |                                                 
+                  p.collections-content MediTab
+                |                                             
+                .col.s3
+                  span.task-cat.teal Marketing
+                |                                             
+                .col.s3
+                  #project-line-3
+            |                                     
+            li.collection-item
+              .row
+                .col.s6
+                  p.collections-title AdWord campaign
+                  |                                                 
+                  p.collections-content True Line
+                |                                             
+                .col.s3
+                  span.task-cat.green SEO
+                |                                             
+                .col.s3
+                  #project-line-4
+        |                             
+        .col.s12.m12.l6
+          ul#issues-collection.collection
+            li.collection-item.avatar
+              i.mdi-action-bug-report.circle.red.darken-2
+              |                                         
+              span.collection-header Issues
+              |                                         
+              p Assigned to you
+              |                                         
+              a.secondary-content(href="#")
+                i.mdi-action-grade
+            |                                     
+            li.collection-item
+              .row
+                .col.s7
+                  p.collections-title
+                    strong #102
+                    |  Home Page
+                  |                                                 
+                  p.collections-content Web Project
+                |                                             
+                .col.s2
+                  span.task-cat.pink.accent-2 P1
+                |                                             
+                .col.s3
+                  .progress
+                    .determinate(style="width: 70%")
+            |                                     
+            li.collection-item
+              .row
+                .col.s7
+                  p.collections-title
+                    strong #108
+                    |  API Fix
+                  |                                                 
+                  p.collections-content API Project 
+                |                                             
+                .col.s2
+                  span.task-cat.yellow.darken-4 P2
+                |                                             
+                .col.s3
+                  .progress
+                    .determinate(style="width: 40%")
+            |                                     
+            li.collection-item
+              .row
+                .col.s7
+                  p.collections-title
+                    strong #205
+                    |  Profile page css
+                  |                                                 
+                  p.collections-content New Project 
+                |                                             
+                .col.s2
+                  span.task-cat.light-green.darken-3 P3
+                |                                             
+                .col.s3
+                  .progress
+                    .determinate(style="width: 95%")
+            |                                     
+            li.collection-item
+              .row
+                .col.s7
+                  p.collections-title
+                    strong #188
+                    |  SAP Changes
+                  |                                                 
+                  p.collections-content SAP Project
+                |                                             
+                .col.s2
+                  span.task-cat.pink.accent-2 P1
+                |                                             
+                .col.s3
+                  .progress
+                    .determinate(style="width: 10%")
+    // work collections end
+  // end container
+// END CONTENT

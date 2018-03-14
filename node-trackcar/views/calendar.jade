@@ -1,0 +1,39 @@
+extends layout
+
+block content
+ #breadcrumbs-wrapper.grey.lighten-3
+  .container
+    .row
+      .col.s12.m12.l12
+        h5.breadcrumbs-title Calendar
+        ol.breadcrumb
+          li
+            a(href='index.html') Dashboard
+          li
+            a(href='#') Pages
+          li.active Calendar
+ // breadcrumbs end
+ // start container
+ 
+ .container
+  .section
+    p.caption
+      | FullCalendar is a jQuery plugin that provides a full-sized, drag & drop event calendar like the one below. It uses AJAX to fetch events on-the-fly and is easily configured to use your own feed format. It is visually customizable with a rich API.
+    .divider
+    #full-calendar
+      .row
+        .col.s12.m4.l3
+          #external-events
+            h4.header Draggable Events
+            .fc-event.cyan March Invoices
+            .fc-event.teal Call Emy
+            .fc-event.cyan.darken-1 Dinner with Team
+            .fc-event.cyan.accent-4 Meeting with Support Team
+            .fc-event.teal.accent-4 Meeting with Sales Team
+            .fc-event.light-blue.accent-3 Design an iOS App
+            .fc-event.light-blue.accent-4 Company Party
+            p
+              input#drop-remove(type='checkbox')
+              label(for='drop-remove') remove after drop
+        .col.s12.m8.l9
+          #calendar

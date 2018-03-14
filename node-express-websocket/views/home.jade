@@ -1,0 +1,28 @@
+doctype html
+html
+ head
+  title Belajar Websocket Express NodeJS
+  body
+   h1 Papan Pesan
+   h2#user
+   ul#pesan
+
+   script(src='/socket.io/socket.io.js')
+   script.
+    var socket = io.connect('http://localhost:3000')
+    socket.on('berita', (data) => {
+     var li = document.createElement('li');
+     var text = document.createTextNode('Berita: '+data.msg);
+     li.appendChild(text);
+     document.getElementById('pesan').appendChild(li);
+     document.getElementById('user').innerHTML = data.user;
+    });
+
+    socket.on('pribadi', (data) => {
+     var li = document.createElement('li');
+     var text = document.createTextNode('Pribadi: '+data.msg);
+     li.appendChild(text);
+     document.getElementById('pesan').appendChild(li);
+
+     socket.emit('pribadi', { msg: "Thank you for message"});
+    });

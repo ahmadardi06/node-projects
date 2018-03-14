@@ -1,0 +1,15 @@
+{
+  "name": "gps-neo6m",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ardi-PC",
+  "license": "ISC",
+  "dependencies": {
+    "gps": "^0.4.3",
+    "serialport": "^6.1.1"
+  }
+}

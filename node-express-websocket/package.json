@@ -17,9 +17,15 @@
   },
   "homepage": "https://github.com/ahmadardi06/node-projects#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "jade": "^1.11.0",
     "onoff": "^2.0.0",
+    "path": "^0.12.7",
     "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
   }
 }

@@ -1,4 +1,7 @@
 var http = require('http');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var path = require('path');
 var express = require('express');
 var app = express();
 var server = http.createServer(app);
@@ -8,8 +11,17 @@ var Gpio = require('onoff').Gpio;
 var pushButton = new Gpio(17, 'in', 'both');
 var LED = new Gpio(4, 'out');
 
+var gmaps = require('./routes/gmaps');
+
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/gmaps', gmaps);
 
 app.get('/lampu', (req, res) => {
 	res.render('lampu');

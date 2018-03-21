@@ -1,233 +1,46 @@
 extends layout
 
 block content
+
+  // start container
   .container
-    #mail-app.section
-      .row
-        .col.s12
-          nav.red
-            .nav-wrapper
-              .left.col.s12.m5.l5
-                ul
-                  li
-                    a.email-menu(href='#!')
-                      i.mdi-navigation-menu
-                  li
-                    a.email-type(href='#!') #{title}
-                  li.right
-                    a(href='#!')
-                      i.mdi-action-search
-              .col.s12.m7.l7.hide-on-med-and-down
-                ul.right
-                  li
-                    a(href='#!')
-                      i.mdi-content-archive
-                  li
-                    a(href='#!')
-                      i.mdi-action-delete
-                  li
-                    a(href='#!')
-                      i.mdi-content-mail
-                  li
-                    a(href='#!')
-                      i.mdi-navigation-more-vert
-        .col.s12
-          #email-sidebar.col.s2.m1.s1.card-panel
-            ul
-              li
-                img.circle.responsive-img.valign.profile-image(src='images/avatar.jpg', alt='')
-              li
-                a(href='#!')
-                  i.mdi-content-archive.active
-              li
-                a(href='#!')
-                  i.mdi-social-group
-              li
-                a(href='#!')
-                  i.mdi-maps-local-offer
-              li
-                a(href='#!')
-                  i.mdi-alert-error
-          #email-list.col.s10.m4.l4.card-panel.z-depth-1
-            ul.collection
-              li.collection-item.avatar.email-unread
-                i.mdi-social-group.icon.blue-text
-                span.email-title Social
-                p.truncate.grey-text.ultra-small You have Google+ request from john doe.
-                a.secondary-content(href='#!')
-                  span.new.badge.blue 4
-              li.collection-item.avatar.email-unread
-                i.mdi-maps-local-offer.icon.green-text
-                span.email-title Promotions
-                p.truncate.grey-text.ultra-small Amazone, Flipkart 50% off on summer sale.
-                a.secondary-content(href='#!')
-                  span.new.badge.green 6
-              li.collection-item.avatar.email-unread
-                i.mdi-alert-error.icon.yellow-text.text-darken-3
-                span.email-title Updates
-                p.truncate.grey-text.ultra-small Google play application updates for your mobile.
-                a.secondary-content(href='#!')
-                  span.new.badge.yellow.darken-3 2
-              li.collection-item.avatar.email-unread
-                span.circle.red.lighten-1 A
-                span.email-title Amazone.com
-                p.truncate.grey-text.ultra-small Summer sale is now going on.
-                a.secondary-content.email-time(href='#!')
-                  span.blue-text.ultra-small 12:10 am
-              li.collection-item.avatar.selected
-                img.circle(src='images/avatar.jpg', alt='')
-                span.email-title Andy Brown
-                p.truncate.grey-text.ultra-small Hay Joe, we have next project for this summer.
-                a.secondary-content.email-time(href='#!')
-                  i.mdi-editor-attach-file.attach-file
-                  span.grey-text.ultra-small 12:10 am
-              li.collection-item.avatar.email-unread
-                span.circle.grey.darken-1 T
-                span.email-title Tuts+
-                p.truncate.grey-text.ultra-small Update your code skill, free tutorial for web development.
-                a.secondary-content.email-time(href='#!')
-                  span.blue-text.ultra-small 2:05 am
-              li.collection-item.avatar.email-unread
-                span.circle.indigo.darken-1 F
-                span.email-title Facebook.com
-                p.truncate.grey-text.ultra-small You have new friend request from emy nelson.
-                a.secondary-content.email-time(href='#!')
-                  span.blue-text.ultra-small 1:15 pm
-              li.collection-item.avatar.email-unread
-                span.circle.light-blue T
-                span.email-title Twitter
-                p.truncate.grey-text.ultra-small You have 5 new followers today, let's check it out.
-                a.secondary-content.email-time(href='#!')
-                  span.blue-text.ultra-small 8:30 pm
-              li.collection-item.avatar.email-unread
-                span.circle.green.accent-4 E
-                span.email-title Envato Studio
-                p.truncate.grey-text.ultra-small Envato Studio Provider News : Score the new stuff.
-                a.secondary-content.email-time(href='#!')
-                  span.blue-text.ultra-small 5:18 am
-              li.collection-item.avatar.email-unread
-                span.circle.red G
-                span.email-title Gmail
-                p.truncate.grey-text.ultra-small You have 5 new mail today.
-                a.secondary-content.email-time(href='#!')
-                  span.blue-text.ultra-small 6:38 am
-          #email-details.col.s12.m7.l7.card-panel
-            p.email-subject.truncate
-              | New app design for iPhone 
-              span.email-tag.grey.lighten-3 inbox
-              span.email-tag.light-blue.lighten-4 projects
-              i.mdi-action-star-rate.yellow-text.text-darken-3.right
-            hr.grey-text.text-lighten-2
-            .email-content-wrap
-              .row
-                .col.s10.m10.l10
-                  ul.collection
-                    li.collection-item.avatar
-                      img.circle(src='images/avatar.jpg', alt='')
-                      span.email-title Andy Brown
-                      p.truncate.grey-text.ultra-small To me, John Doe
-                      p.grey-text.ultra-small Yesterday
-                .col.s2.m2.l2.email-actions
-                  a(href='#!')
-                    span
-                      i.mdi-content-reply
-                  a(href='#!')
-                    span
-                      i.mdi-navigation-more-vert
-              .email-content
-                p Hi Mike,
-                p We have new project requirements last night.
-                p
-                  | The standard font Material Design uses is Roboto. We have included the font files with our framework.
-                p
-                  | Cheers!
-                  br
-                  | Andy Brown
-            hr
-            .email-content-wrap
-              .row
-                .col.s10.m10.l10
-                  ul.collection
-                    li.collection-item.avatar
-                      span.circle.light-blue M
-                      span.email-title Mike Parker
-                      p.truncate.grey-text.ultra-small To Andy Brown
-                      p.grey-text.ultra-small 6:10 pm
-                .col.s2.m2.l2.email-actions
-                  a(href='#!')
-                    span
-                      i.mdi-content-reply
-                  a(href='#!')
-                    span
-                      i.mdi-navigation-more-vert
-              .email-content
-                p Hi Andy,
-                p
-                  | We bundle our framework with the latest iteration of Roboto Google has released. It comes with 5 different font weights you can use: 200, 300, 400, 500, 600.
-                p
-                  | Regards,
-                  br
-                  | Mike Parker
-            .email-reply
-              .row
-                .col.s4.m4.l4.center-align
-                  a(href='!#')
-                    i.mdi-content-reply
-                  p.ultra-small Reply
-                .col.s4.m4.l4.center-align
-                  a(href='!#')
-                    i.mdi-content-reply-all
-                  p.ultra-small Reply all
-                .col.s4.m4.l4.center-align
-                  a(href='!#')
-                    i.mdi-content-forward
-                  p.ultra-small Forward
-      // Compose Email Trigger
-      .fixed-action-btn(style='bottom: 45px; right: 24px;')
-        a.btn-floating.btn-large.red.modal-trigger(href='#modal1')
-          i.large.mdi-editor-mode-edit
-      // Compose Email Structure
-      #modal1.modal
-        .modal-content
-          nav.red
-            .nav-wrapper
-              .left.col.s12.m5.l5
-                ul
-                  li
-                    a.email-menu(href='#!')
-                      i.modal-action.modal-close.mdi-hardware-keyboard-backspace
-                  li
-                    a.email-type(href='#!') Compose
-              .col.s12.m7.l7.hide-on-med-and-down
-                ul.right
-                  li
-                    a(href='#!')
-                      i.mdi-editor-attach-file
-                  li
-                    a(href='#!')
-                      i.modal-action.modal-close.mdi-content-send
-                  li
-                    a(href='#!')
-                      i.mdi-navigation-more-vert
-        .model-email-content
-          .row
-            form.col.s12
-              //
-                <div class="row">
-                <div class="input-field col s12">
-                <input id="from_email" type="email" class="validate">
-                <label for="from_email">From</label>
-                </div>
-                </div>
-              .row
-                .input-field.col.s12
-                  input#to_email.validate(type='email')
-                  label(for='to_email') To
-              .row
-                .input-field.col.s12
-                  input#subject.validate(type='text')
-                  label(for='subject') Subject
-              .row
-                .input-field.col.s12
-                  textarea#compose.materialize-textarea(length='500')
-                  label(for='compose') Compose email
+   .section
+    p.caption A Simple Control LED with Raspberry PI 3 Model B + NodeJS.
+    .divider
+
+    // Input Switches
+    #input-switches.section
+     h4.header On / Off LED Raspberry
+     .row
+      .col.s12.m4.l3
+       p
+      .col.s12.m8.l9
+       // Switch
+       .switch
+        | Enabled :
+        label
+         | Off
+         input#kontrol(type='checkbox')
+         span.lever
+         |  On
+       br
+       // Disabled Switch
+       .switch
+        | Diabled :
+        label
+         | Off
+         input(disabled='', type='checkbox')
+         span.lever
+         |  On
+    .divider
+
+    script(src="/socket.io/socket.io.js")
+    script.
+     var sc = io('//localhost:8080');
+     var btn = document.getElementById('kontrol');
+     btn.addEventListener('change', () => {
+      if(btn.checked)
+       sc.emit('statuslampu', {msg: 1});
+      else
+       sc.emit('statuslampu', {msg: 0});
+     });

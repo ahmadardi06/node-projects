@@ -1,0 +1,9 @@
+mongodb-3.4:
+mongodb://mongodb-stitch-remotecars-drvsi:<PASSWORD>@
+remotecars1-shard-00-00-0nn52.mongodb.net:27017,
+remotecars1-shard-00-01-0nn52.mongodb.net:27017,
+remotecars1-shard-00-02-0nn52.mongodb.net:27017/test?
+ssl=true&replicaSet=remotecars1-shard-0&authSource=admin
+
+mongodb-3.6:
+mongodb+srv://mongodb-stitch-remotecars-drvsi:<PASSWORD>@remotecars1-0nn52.mongodb.net/test

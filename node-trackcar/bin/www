@@ -3,8 +3,8 @@
 /**
  * Module dependencies.
  */
-
-var app = require('../app');
+// edit app ditambahi .app
+var app = require('../app').app;
 var debug = require('debug')('node-trackcar:server');
 var http = require('http');
 
@@ -19,7 +19,9 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//edit jadi reuire app.js .server
+//var server = http.createServer(app);
+var server = require('../app').server;
 
 /**
  * Listen on provided port, on all network interfaces.

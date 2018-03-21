@@ -11,10 +11,21 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 var forgot = require('./routes/forgot-password');
 var mailbox = require('./routes/mailbox');
+var kontrolled = require('./routes/kontrolled');
+var gmaps = require('./routes/gmaps');
 //end tambahan
 var users = require('./routes/users');
 
 var app = express();
+
+// tambahan socket.io
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+app.use((req, res, next) => {
+  res.io = io;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,6 +45,8 @@ app.use('/page-login', login);
 app.use('/page-register', register);
 app.use('/page-forgot-password', forgot);
 app.use('/page-mailbox', mailbox);
+app.use('/page-kontrolled', kontrolled);
+app.use('/page-gmaps', gmaps);
 //end tambahan
 app.use('/users', users);
 
@@ -55,4 +68,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app: app, server: server};

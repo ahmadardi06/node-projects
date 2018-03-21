@@ -100,3 +100,9 @@ html(lang="en")
     script(type="text/javascript", src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js")
     // plugins.js - Some Specific JS codes for Plugin Settings
     script(type="text/javascript", src="js/plugins.js")
+
+    //tambahan socket.io
+    script(src='/socket.io/socket.io.js')
+    script.
+     var sc = io('//localhost:8080');
+     sc.emit('getMessage', {msg: "One user connected"});

@@ -10,14 +10,14 @@ block content
 
     // Input Switches
     #input-switches.section
-     h4.header On / Off LED Raspberry
+     h4.header On / Off Raspberry
      .row
       .col.s12.m4.l3
        p
       .col.s12.m8.l9
        // Switch
        .switch
-        | Enabled :
+        | LED :
         label
          | Off
          input#kontrol(type='checkbox')
@@ -26,10 +26,10 @@ block content
        br
        // Disabled Switch
        .switch
-        | Diabled :
+        | GPS :
         label
          | Off
-         input(disabled='', type='checkbox')
+         input#gpskontrol(type='checkbox')
          span.lever
          |  On
     .divider
@@ -38,9 +38,16 @@ block content
     script.
      var sc = io('//localhost:8080');
      var btn = document.getElementById('kontrol');
+     var btngps = document.getElementById('gpskontrol');
      btn.addEventListener('change', () => {
       if(btn.checked)
        sc.emit('statuslampu', {msg: 1});
       else
        sc.emit('statuslampu', {msg: 0});
+     });
+     btngps.addEventListener('change', () => {
+      if(btngps.checked)
+       sc.emit('statusgps', {msg: 1});
+      else
+       sc.emit('statusgps', {msg: 0});
      });

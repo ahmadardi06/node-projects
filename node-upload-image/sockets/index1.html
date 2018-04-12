@@ -1,0 +1,42 @@
+<h1>Server1</h1>
+<input type="text" id="message" placeholder="..." />
+<button id="send">Send Index</button>
+
+<input type="text" id="message1" placeholder="..." />
+<button id="send1">Send Admin</button>
+
+<br>
+<ul id="board"></ul>
+<ul id="board1"></ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var ioindex = io("/");
+var ioadmin = io("/admin");
+
+var message = document.getElementById("message");
+var message1 = document.getElementById("message1");
+var send = document.getElementById("send");
+var send1 = document.getElementById("send1");
+var board = document.getElementById("board");
+var board1 = document.getElementById("board1");
+
+send.addEventListener("click", function(){
+ ioindex.emit("pesan", {msg: message.value});
+ message.value ="";
+});
+
+send1.addEventListener("click", function(){
+ ioadmin.emit("pesan", {msg: message1.value});
+ ioindex.emit("pesan", {msg: message1.value+" dari admin"});
+ message1.value = "";
+});
+
+ioindex.on("pesan", function(data){
+ board.innerHTML += "<li>"+data.msg+"</li>";
+});
+
+ioadmin.on("pesan", function(data){
+ board1.innerHTML += "<li>"+data.msg+"</li>";
+});
+</script>

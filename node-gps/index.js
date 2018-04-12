@@ -3,7 +3,8 @@ var file = '/dev/ttyS0';
 var GPS = require('gps');
 var SerialPort = require('serialport');
 var port = new SerialPort(file, {
-  baudRate: 9600
+  baudRate: 9600,
+  parser: SerialPort.parsers.readline('\r\n')
 });
 
 var gps = new GPS;

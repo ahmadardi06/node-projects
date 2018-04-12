@@ -9,7 +9,11 @@
   "author": "ardi-PC",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.0",
     "gps": "^0.4.3",
-    "serialport": "^6.1.1"
+    "pi-camera": "^1.1.0",
+    "request": "^2.85.0",
+    "serialport": "^6.1.1",
+    "sleep": "^5.1.1"
   }
 }

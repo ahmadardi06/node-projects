@@ -71,7 +71,7 @@ input:checked + .slider:before {
 </label>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> <!-- include socket.io client side script -->
 <script>
-var socket = io(); //load socket.io-client and connect to the host that serves the page
+var socket = io("http://localhost:8080/"); //load socket.io-client and connect to the host that serves the page
 window.addEventListener("load", function(){ //when page loads
   var lightbox = document.getElementById("light"); 
   lightbox.addEventListener("change", function() { //add event listener for when checkbox changes

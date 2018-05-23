@@ -1,5 +1,5 @@
 var io = require('socket.io-client');
-var sc = io.connect('https://trackcar.herokuapp.com/');
+var sc = io.connect('https://trackcar.herokuapp.com/', {query: 'idMobil=5ab851b9b397a927081303b5'});
 var exec = require('child_process').exec;
 var Gpio = require('onoff').Gpio;
 var fs = require('fs');
@@ -13,13 +13,26 @@ var LED17 = new Gpio(17, 'out');
 var LED27 = new Gpio(27, 'out');
 var LED22 = new Gpio(22, 'out');
 
+var LED18 = new Gpio(18, 'in', 'both');
+
+LED.writeSync(1);
+LED17.writeSync(1);
+LED27.writeSync(1);
+LED22.writeSync(1);
+
 request.get(API, (err, res, bod)=>{
- if (!err && res.statusCode == 200) {
+ if (!err && res.statusCode == 200 && res != undefined) {
   var info = JSON.parse(bod);
   LED.writeSync(Number(info.relay.lamp));
   LED17.writeSync(Number(info.relay.engine));
   LED27.writeSync(Number(info.relay.door));
   LED22.writeSync(Number(info.relay.alarm));
+ }
+ else{
+  LED.writeSync(1);
+  LED17.writeSync(1);
+  LED27.writeSync(1);
+  LED22.writeSync(1);
  }
 });
 
@@ -105,6 +118,38 @@ sc.on('statusgps', (data) => {
     console.log('exec error: ', err);
    }
   });
+ }
+});
+
+function sendMessageToDevice(idDevice, title, message) {
+ request({
+  url: 'https://fcm.googleapis.com/fcm/send',
+  method: 'POST',
+  headers: {
+   'Content-Type': ' application/json',
+   'Authorization': 'key=AIzaSyD64VrFJwKIZi4dlRyoaMSd4bK6OQchMbA'
+  },
+  body: JSON.stringify({
+    notification: {
+    title: title,
+    body: message               
+   },
+    'to': idDevice  
+   })
+  }, function(error, response, body) {
+   if (error)
+    console.log(error);
+   else if (response.statusCode >= 400)
+    console.log("HTTP Error" + response.statusCode + "-" + response.statusCode + "\n" + body);
+   else
+    console.log(body);
+ });
+}
+
+LED18.watch(function(err, value){
+ if(value == 1){
+  sendMessageToDevice(e0Bm4kStuaM:APA91bEsXy3Wg_vba8ssft24cEn8ImjlnK5TX1J5sJ0l8yw-eaLdELDNNjARnlMNG5M8FXYYHtOq6BZsGt0NgSUTcJVLzIDmYmHAsERf62rm-nkTGezTMaxP5LYi80G296lCqlzq0p73
+, "Warning Notification", "Engine on triggered, please check your car.");
  }
 });
 
